@@ -1,6 +1,6 @@
 output "auth" {
   description = "The ID of the created Identity Platform configuration."
-  value       = google_identity_platform_config.auth.name
+  value       = google_identity_platform_config.auth
 }
 
 # output "auth_project" {
