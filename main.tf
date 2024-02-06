@@ -11,7 +11,7 @@ resource "google_identity_platform_config" "auth" {
 output "auth" {
   description = "The ID of the Identity Platform configuration."
   # value       = module.firebase_signin.auth
-   value       = google_identity_platform_config.auth
+   value       = google_identity_platform_config.auth.name
 
 }
 
