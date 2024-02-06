@@ -1,3 +1,3 @@
 project = "edblack"
 region = "us-central1"
-zone = ""
+zone = "us-central1-a"
