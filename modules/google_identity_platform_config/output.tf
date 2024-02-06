@@ -3,9 +3,9 @@ output "auth" {
   value       = google_identity_platform_config.auth.name
 }
 
-output "auth_project" {
-  description = "The project associated with the Identity Platform configuration."
-  value       = var.project
-}
+# output "auth_project" {
+#   description = "The project associated with the Identity Platform configuration."
+#   value       = var.project
+# }
 
 # # Add any other output variables you need

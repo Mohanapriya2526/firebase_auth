@@ -3,7 +3,6 @@
 #   project = var.project
    
 # }
-
 resource "google_identity_platform_config" "auth" {
    provider = google-beta
    project = var.project
@@ -20,7 +19,6 @@ output "auth" {
 #   id = "projects/{{edblack}}/config"
 #   to = google_identity_platform_config.auth
 # }
-
 module "project_service" {
   source = "./modules/google_project_service"
   project = var.project

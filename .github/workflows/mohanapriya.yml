@@ -1,0 +1,72 @@
+name: 'Terraform'
+defaults:
+      run:
+         shell: bash
+         working-directory: "./"
+on:
+  push:
+    branches:
+       - main
+  #   paths:
+  #      - 'envs/dev/bfx-coach/**'
+  # # pull_request:
+   
+jobs:
+  terraform:
+    name: 'Terraform_mohanapriya'
+    runs-on: ubuntu-latest
+    # if: github.actor == 'Mohanapriya2526'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: get runner ip addresses
+        id: ip
+        uses: haythem/public-ip@v1.2
+     
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.5.4   
+     
+      - name: Terraform Format
+        id: fmt
+        run: terraform fmt
+     
+      - name: Configure & Init Terraform
+        id: init
+        run: |
+          #  echo "$(hostname)"
+          # sed -i "s/13.65.0.0/$(echo "${{steps.ip.outputs.ipv4}}" | sed 's/\([0-9]\+\.[0-9]\+\)\.[0-9]\+\.[0-9]\+/\1.0.0/')/g" terraform.tfvars
+          terraform init
+        env:
+          GOOGLE_CREDENTIALS: "${{ secrets.FIREBASE_KEY }}"
+          
+      - name: Terraform import
+        id: import
+        run: terraform import google_identity_platform_config.auth projects/edblack
+        env:
+          GOOGLE_CREDENTIALS: "${{ secrets.FIREBASE_KEY }}"
+
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate -no-color
+     
+      - name: Terraform Plan
+        id: plan
+        # if: github.event_name == 'pull_request'
+        run: terraform plan -auto-approve -input=false
+        continue-on-error: true
+        env:
+          GOOGLE_CREDENTIALS: "${{ secrets.FIREBASE_KEY }}"
+     
+      
+      - name: Terraform Apply
+        # if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+        # if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: terraform apply -auto-approve -input=false 
+
+        env:
+          GOOGLE_CREDENTIALS: "${{ secrets.FIREBASE_KEY }}"
+
