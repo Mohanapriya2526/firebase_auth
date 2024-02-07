@@ -21,3 +21,7 @@ resource "google_identity_platform_config" "auth" {
         }
     }
 }
+import {
+  id = "projects/{{edblack}}/config"
+  to = google_identity_platform_config.auth
+}
