@@ -22,7 +22,7 @@ module "google_signin" {
 # }
 import {
   id = "projects/{{edblack}}/config"
-  to = google_signin.auth
+  to = google_identity_platform_config.auth
 }
 
 
