@@ -7,7 +7,6 @@ resource "google_identity_platform_config" "auth" {
   
    provider = google-beta
    
-  name = "auth_config"
   #  project  = var.project
    project = module.firebase_signin.auth_project
       depends_on = [ module.project_service ]
