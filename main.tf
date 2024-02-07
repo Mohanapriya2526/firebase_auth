@@ -41,10 +41,10 @@ module "google_signin" {
 #   description = "The project associated with the Identity Platform configuration."
 #   value       = var.project
 # }
-import {
-  id = "projects/{{edblack}}/config"
-  to = google_identity_platform_config.auth
-}
+# import {
+#   id = "projects/{{edblack}}/config"
+#   to = google_identity_platform_config.auth
+# }
 
 module "project_service" {
   source  = "./modules/google_project_service"
