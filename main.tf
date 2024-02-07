@@ -9,10 +9,10 @@ resource "google_identity_platform_config" "auth" {
   # project = module.firebase_signin.auth_project
 }
 
-output "auth" {
-  description = "The ID of the created Identity Platform configuration."
-  value       = google_identity_platform_config.auth
-}
+# output "auth" {
+#   description = "The ID of the created Identity Platform configuration."
+#   value       = google_identity_platform_config.auth
+# }
 
 # import {
 #   id = "projects/{{edblack}}/config"
