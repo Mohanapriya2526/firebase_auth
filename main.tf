@@ -8,7 +8,7 @@ module "google_signin" {
    
   project  = var.project
 #    project = module.firebase_signin.auth_project
-#       depends_on = [ module.project_service ]
+   depends_on = [ module.project_service ]
 
 }
 
