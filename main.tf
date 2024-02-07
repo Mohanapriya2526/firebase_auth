@@ -25,6 +25,7 @@ import {
   to = google_identity_platform_config.auth
 }
 
+
 module "project_service" {
   source  = "./modules/google_project_service"
   project = var.project
