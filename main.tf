@@ -3,16 +3,16 @@
 #   project = var.project
    
 # }
-resource "google_identity_platform_config" "auth" {
-   provider = google-beta
-   project  = var.project
-  # project = module.firebase_signin.auth_project
-}
-
-# output "auth" {
-#   description = "The ID of the created Identity Platform configuration."
-#   value       = google_identity_platform_config.auth
+# resource "google_identity_platform_config" "auth" {
+#    provider = google-beta
+#    project  = var.project
+#   # project = module.firebase_signin.auth_project
 # }
+
+output "auth" {
+  description = "The ID of the created Identity Platform configuration."
+  value       = google_identity_platform_config.auth
+}
 
 # import {
 #   id = "projects/{{edblack}}/config"
