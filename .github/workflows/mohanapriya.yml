@@ -45,7 +45,8 @@ jobs:
       - name: Terraform import
         id: import 
         # run: terraform import module.google_signin.google_identity_platform_config.auth projects/edblack
-        run: terraform import google_identity_platform_config.auth projects/edblack
+        # run: terraform import google_identity_platform_config.auth projects/edblack
+        run: terraform import google_identity_platform_config.auth projects/{{edblack}}
         env:
           GOOGLE_CREDENTIALS: "${{ secrets.FIREBASE_KEY }}"
 
