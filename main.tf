@@ -1,8 +1,8 @@
-module "google_signin" {
-  source = "./modules/google_identity_platform_config"
-  project = var.project
-   depends_on = [ module.project_service ]
-}
+# module "google_signin" {
+#   source = "./modules/google_identity_platform_config"
+#   project = var.project
+#    depends_on = [ module.project_service ]
+# }
  resource "google_identity_platform_config" "auth" {
    provider = google-beta
     project = var.project
