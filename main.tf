@@ -8,6 +8,7 @@ module "google_signin" {
    
   project  = var.project
 #    project = module.firebase_signin.auth_project
+
    depends_on = [ module.project_service ]
 
 }
@@ -20,11 +21,11 @@ module "google_signin" {
 #   description = "The project associated with the Identity Platform configuration."
 #   value       = var.project
 # }
+
 import {
   id = "projects/{{edblack}}/config"
   to = google_identity_platform_config.auth
 }
-
 
 module "project_service" {
   source  = "./modules/google_project_service"
