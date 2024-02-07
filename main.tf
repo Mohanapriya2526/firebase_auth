@@ -1,16 +1,16 @@
-module "firebase_signin" {
+module "google_signin" {
   source = "./modules/google_identity_platform_config"
   project = var.project
    depends_on = [ module.project_service ]
 }
-# resource "google_identity_platform_config" "auth" {
-#   provider = google-beta
+ resource "google_identity_platform_config" "auth" {
+   provider = google-beta
    
-#   #  project  = var.project
+  project  = var.project
 #    project = module.firebase_signin.auth_project
 #       depends_on = [ module.project_service ]
 
-# }
+}
 
 # output "auth" {
 #   description = "The ID of the created Identity Platform configuration."
@@ -22,7 +22,7 @@ module "firebase_signin" {
 # }
 import {
   id = "projects/{{edblack}}/config"
-  to = firebase_signin.auth
+  to = google_signin.auth
 }
 
 
