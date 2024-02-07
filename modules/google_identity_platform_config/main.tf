@@ -1,5 +1,5 @@
 resource "google_identity_platform_config" "auth" {
-  provider = google_beta
+  provider = google-beta
   project = var.project
     sign_in {
         allow_duplicate_emails = true
