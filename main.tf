@@ -21,7 +21,6 @@ module "google_signin" {
 #   description = "The project associated with the Identity Platform configuration."
 #   value       = var.project
 # }
-
 import {
   id = "projects/{{edblack}}/config"
   to = google_identity_platform_config.auth
