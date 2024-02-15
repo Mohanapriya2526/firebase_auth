@@ -9,6 +9,7 @@ module "platform_config" {
   email_enabled           = var.email_enabled
   email_password_required = var.email_password_required
   phone_number_enabled    = var.phone_number_enabled
+
 }
 
 
